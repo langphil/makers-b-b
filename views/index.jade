@@ -3,3 +3,12 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  form(name="test-form", action="/" method="post")
+    input(type="text", name="property-title", placeholder="Property Title")
+    br
+    br
+    textarea(name="property-description" rows="10" cols="30" placeholder="Description")
+    br
+    br
+    input(type="submit", value="add")

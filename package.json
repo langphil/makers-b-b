@@ -20,6 +20,7 @@
     "sequelize": "^4.4.2",
     "sequelize-cli": "^2.8.0",
     "serve-favicon": "~2.4.2",
-    "stylus": "0.54.5"
+    "stylus": "0.54.5",
+    "zombie": "latest"
   }
 }
