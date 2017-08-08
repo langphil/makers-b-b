@@ -1,5 +1,14 @@
 # Maker BnB
 
+## Setup
+
+```
+$ npm install
+$ psql
+$ create database makers_bnb_development
+$ create database makers_bnb_test
+$ ./node_modules/.bin/sequelize db:migrate
+
 # User stories
 
 - User 1 - Hosts
