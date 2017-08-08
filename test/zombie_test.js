@@ -10,8 +10,17 @@ describe('User can see home page', function() {
     browser.visit('/', done);
   });
 
-  it('should see welcome page', function() {
-    browser.assert.text('p','Welcome to Makers BnB')
-  });
+  describe('submittable a form', function() {
 
-});
+    before(function(done) {
+      browser
+          .fill("property-title", "Studio Flat in London")
+          .fill("property-description", "A spacious studio flat with easy access to tube station")
+          .pressButton('add', done);
+    });
+
+      it('should confirm a submission', function() {
+        browser.assert.text('p', "Your listing has been submitted")
+      });
+    });
+  });
