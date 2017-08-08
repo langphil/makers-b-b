@@ -11,6 +11,7 @@ describe('User can see home page', function() {
   });
 
   it('should see welcome page', function() {
-    browser.assert.text('title','Makers BnB')
+    browser.assert.text('p','Welcome to Makers BnB')
   });
+
 });
