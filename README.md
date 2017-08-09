@@ -15,6 +15,8 @@ $ sequelize db:migrate --env test
 
 ## Running the tests
 
+In order to make sure the tests only populate the test database, the NODE_ENV must be set before booting the nodemon server for zombie to run on.
+
 ```
 $ export NODE_ENV=test
 $ nodemon

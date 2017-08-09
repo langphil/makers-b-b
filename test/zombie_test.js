@@ -31,5 +31,9 @@ describe('User can see home page', function() {
       it('should add data to the database', function() {
         chai.expect(models.Listing.findOne({name: "Studio Flat in London"})).to.exist;
       });
+
+      after(function() {
+        models.sequelize.truncate();
+      });
     });
   });
