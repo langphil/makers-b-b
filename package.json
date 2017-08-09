@@ -3,11 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build-task:scss-compile": "node-sass-chokidar --source-map true scss/ -o public/stylesheets",
+    "build-task:autoprefixer": "postcss public/stylesheets/*.css --use autoprefixer -d public/stylesheets",
+    "sass:build": "npm-run-all -p build-task:*",
+    "sass:watch": "chokidar 'scss/partials/*.sass' -c 'npm run sass:build'",
+    "dev": "npm-run-all -p sass:*",
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "autoprefixer": "^7.1.2",
     "body-parser": "~1.17.1",
     "chai": "^4.1.1",
+    "chokidar-cli": "^1.2.0",
     "cookie-parser": "~1.4.3",
     "database-cleaner": "^1.2.0",
     "debug": "~2.6.3",
@@ -16,13 +23,15 @@
     "jade": "~1.11.0",
     "mocha": "^3.5.0",
     "morgan": "~1.8.1",
+    "node-sass-chokidar": "latest",
     "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2",
     "pg": "^7.1.0",
     "pg-hstore": "^2.3.2",
+    "postcss-cli": "^4.1.0",
     "sequelize": "^4.4.2",
     "sequelize-cli": "^2.8.0",
     "serve-favicon": "~2.4.2",
-    "stylus": "0.54.5",
     "zombie": "latest"
   }
 }
