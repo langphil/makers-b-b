@@ -11,11 +11,14 @@ describe('User can see home page', function(){
 
   before(function(done) {
     models.Listing.create({name: "Studio Flat in London", text: "description"}, done);
+    models.Listing.create({name: "The Fish Market", text: "description"}, done);
     browser.visit('/', done);
   });
 
   it('should appear on the main page', function(done) {
-    browser.assert.element('ul');
+    chai.expect(browser.html("body")).to.include("Studio Flat in London")
+    chai.expect(browser.html("body")).to.include("The Fish Market")
+    chai.expect(browser.html("body")).to.not.include("Crap Flat")
     done();
   });
 
