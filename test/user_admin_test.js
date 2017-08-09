@@ -20,6 +20,6 @@ describe('User', function() {
   });
 
   it('can be created', function() {
-    browser.assert.text('#welcome', "Welcome Sally!");
+    chai.expect(browser.html("body")).to.include("Welcome Sally!")
   });
 });

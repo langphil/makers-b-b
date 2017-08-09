@@ -4,8 +4,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  name = models.User.find({where: { id: 1 }})
-  console.log(name);
+  models.User.find({where: { id: 5 }}).then(function(user) {
+    name = (user.name);
+  });
   models.Listing.findAll().then(function(listings) {
     res.render('index', {
       title: 'Makers BnB',
