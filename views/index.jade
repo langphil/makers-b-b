@@ -3,9 +3,14 @@ extends layout
 block content
   section(class="container")
     h1 List a new property
-    
+
   section(class="container")
     form(name="test-form", action="/" method="post")
       input(type="text", name="title", placeholder="Property Title...")
       textarea(name="description" rows="10" cols="30" placeholder="Description...")
       button(type="submit", value="add") Submit
+
+      ul
+        each listing in listings
+          li(id=listings)
+            = listing.name

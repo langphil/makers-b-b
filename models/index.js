@@ -4,9 +4,7 @@ var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(module.filename);
-console.log(process.env.NODE_ENV);
 var env       = process.env.NODE_ENV || 'development';
-console.log(env);
 var config    = require('../config/config.json')[env];
 var db        = {};
 

@@ -4,7 +4,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Makers BnB' });
+  models.Listing.findAll().then(function(listings) {
+    res.render('index', {
+      title: 'Makers BnB',
+      listings: listings
+    });
+  });
 });
 
 router.post('/', function(req, res) {
