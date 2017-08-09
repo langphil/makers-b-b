@@ -7,7 +7,22 @@ $ npm install
 $ psql
 $ create database makers_bnb_development
 $ create database makers_bnb_test
-$ ./node_modules/.bin/sequelize db:migrate
+$ \q
+$ npm install -g sequelize-cli
+$ sequelize db:migrate
+$ sequelize db:migrate --env test
+```
+
+## Running the tests
+
+```
+$ export NODE_ENV=test
+$ nodemon
+
+In a separate tab/window
+$ mocha
+$ export NODE_ENV=development
+```
 
 # User stories
 
