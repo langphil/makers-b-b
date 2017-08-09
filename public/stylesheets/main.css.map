@@ -2,8 +2,11 @@
 	"version": 3,
 	"file": "main.css",
 	"sources": [
-		"../../scss/main.scss"
+		"../../scss/main.scss",
+		"../../scss/partials/_import.sass",
+		"../../scss/partials/_base.sass",
+		"../../scss/partials/_nav.sass"
 	],
 	"names": [],
-	"mappings": "AAEA,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,CAAC;EACT,gBAAgB,EAJX,OAAO,GAKb"
+	"mappings": "AEEA,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,CAAC;EACT,gBAAgB,EAJX,OAAO,GAIc"
 }
