@@ -1,9 +1,7 @@
 const Browser = require ('zombie');
 var models = require('../models');
 var chai = require('chai');
-// var chaiHttp = require('chai-http');
 var should = chai.should();
-// chai.use(chaiHttp);
 
 Browser.localhost("test", 3000);
 
@@ -16,7 +14,6 @@ describe('User can see home page', function() {
   });
 
   describe('submittable a form', function() {
-
     before(function(done) {
       browser
           .fill("title", "Studio Flat in London")
@@ -25,7 +22,7 @@ describe('User can see home page', function() {
       });
 
       it('should confirm a submission', function() {
-        browser.assert.text('p', "Your listing has been submitted");
+        browser.assert.text('#content', "Your listing has been submitted");
       });
 
       it('should add data to the database', function() {
