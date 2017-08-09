@@ -5,8 +5,9 @@
 		"../../scss/main.scss",
 		"../../scss/partials/_import.sass",
 		"../../scss/partials/_base.sass",
+		"../../scss/partials/_color.sass",
 		"../../scss/partials/_nav.sass"
 	],
 	"names": [],
-	"mappings": "AEEA,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,CAAC;EACT,gBAAgB,EAJX,OAAO,GAIc"
+	"mappings": "AEEA,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,CAAC;EACT,gBAAgB,ECHV,OAAO,GDGc"
 }
