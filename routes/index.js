@@ -38,10 +38,27 @@ router.get('/users', function(req, res) {
 });
 
 router.post('/users', function(req, res) {
-  var name = req.body.name;
-  models.User.create({name: name}).then(function() {
+  var body = req.body;
+  models.User.create({name: body.name, username: body.username, email: body.email, password: body.password}).then(function() {
     res.redirect('/');
   });
 });
+
+router.get('/sessions/new', function(req, res, next) {
+  res.render('sessions/new');
+});
+
+router.post('/sessions', function(req, res) {
+  var body = req.body
+  models.User.findOne({ where: { username: body.username } }).then(user => {
+    var username = user.username
+    if(username) {
+      res.redirect('/');
+    } else {
+      res.redirect('/sessions/new');
+    }
+  });
+});
+
 
 module.exports = router;
