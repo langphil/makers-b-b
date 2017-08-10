@@ -1,4 +1,4 @@
-const Browser = require ('zombie');
+var Browser = require ('zombie');
 var models = require('../models');
 var chai = require('chai');
 var should = chai.should();
@@ -7,13 +7,13 @@ Browser.localhost("test", 3000);
 
 describe('User can see home page', function() {
 
-  const browser = new Browser();
+  var browser = new Browser();
 
   before(function(done) {
     browser.visit('/', done);
   });
 
-  describe('submittable a form', function() {
+  describe('submitting a form', function() {
     before(function(done) {
       browser
           .fill("title", "Studio Flat in London")
