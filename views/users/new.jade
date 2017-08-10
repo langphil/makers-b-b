@@ -3,4 +3,7 @@ extends ../layout
 block content
   form(action='/users' method='POST')
     input(id="name" placeholder="name" name="name")
+    input(id="username" placeholder="username" name="username")
+    input(id="email" placeholder="email" name="email")
+    input(id="password" placeholder="password" name="password")
     button(type="submit" name="submit") Submit
