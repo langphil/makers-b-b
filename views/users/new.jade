@@ -1,0 +1,6 @@
+extends ../layout
+
+block content
+  form(action='/users' method='POST')
+    input(id="name" placeholder="name" name="name")
+    button(type="submit" name="submit") Submit
