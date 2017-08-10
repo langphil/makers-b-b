@@ -15,15 +15,15 @@ describe('Listings appear on home page', function(){
 
     it('should should show listing titles', function(done) {
       browser.visit('/').then(function() {
-        expect(browser.html("ul")).to.include("Studio Flat in London");
-        expect(browser.html("ul")).to.not.include("Crap Flat");
+        expect(browser.html(".listing-name")).to.include("Studio Flat in London");
+        expect(browser.html(".listing-name")).to.not.include("Crap Flat");
       });
       done();
     });
 
     it('should show listing descriptions', function(done) {
       browser.visit('/').then(function() {
-        expect(browser.html("ul")).to.include("It's swanky");
+        expect(browser.html(".listing-text")).to.include("It's swanky");
       });
       done();
     });
