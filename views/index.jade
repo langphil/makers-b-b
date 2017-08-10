@@ -10,7 +10,14 @@ block content
       textarea(name="description" rows="10" cols="30" placeholder="Description...")
       button(type="submit", value="add") Submit
 
+  section(class="list")
       ul
         each listing in listings
           li
-            = listing.name + listing.text
+            img(src=listing.img)
+            br
+            <strong>
+            = listing.name
+            </strong>
+            br
+            = listing.text
