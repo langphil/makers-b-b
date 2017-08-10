@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+  form(action='/sessions' method='POST')
+    input(id="username" placeholder="username" name="username")
+    input(id="password" placeholder="password" name="password")
+    button(type="submit" name="submit") Submit
