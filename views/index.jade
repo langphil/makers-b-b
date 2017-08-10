@@ -7,8 +7,8 @@ block content
 
   section(class="container")
     form(name="test-form", action="/" method="post")
-      input(type="text", name="title", placeholder="Property Title...")
-      textarea(name="description" rows="10" cols="30" placeholder="Description...")
+      input(type="text", name="title", placeholder="Property Title...", required='true')
+      textarea(name="description" rows="10" cols="30" placeholder="Description...", required='true')
       button(type="submit", value="add") Submit
 
   section(class="list")
