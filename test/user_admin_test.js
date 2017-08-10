@@ -12,17 +12,14 @@ before(function(done) {
 });
 
 describe('User', function() {
+
   before(function(done) {
     browser
       .fill("name", "Sally")
-      .fill("username", "sally123")
-      .fill("email", "sally@gmail.com")
-      .fill("password", "12345")
       .pressButton('submit', done);
   });
 
-  it('can be created', function(done) {
-    chai.expect(browser.html("body")).to.include("Welcome Sally!");
-    done();
+  it('can be created', function() {
+    chai.expect(browser.html("body")).to.include("Welcome Sally!")
   });
 });
