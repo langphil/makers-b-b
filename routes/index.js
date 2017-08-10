@@ -4,8 +4,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  models.User.find({where: { id: 5 }}).then(function(user) {
-    name = (user.name);
+  models.User.findAll().then(function(user) {
+    name = user[0].name;
   });
   models.Listing.findAll().then(function(listings) {
     res.render('index', {
@@ -39,8 +39,9 @@ router.get('/users', function(req, res) {
 
 router.post('/users', function(req, res) {
   var name = req.body.name;
-  models.User.create({name: name});
-  res.redirect('/');
+  models.User.create({name: name}).then(function() {
+    res.redirect('/');
+  });
 });
 
 module.exports = router;
