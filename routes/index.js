@@ -4,9 +4,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  models.User.findAll().then(function(user) {
-    name = user[0].name;
-  });
+  var body = req.body;
+  name = req.session.user.username;
   models.Listing.findAll().then(function(listings) {
     res.render('index', {
       title: 'Makers BnB',
@@ -21,7 +20,6 @@ router.post('/', function(req, res) {
   models.Listing.create({name: name, text: description});
   res.redirect('/listings/submitted');
 });
-
 
 // Listing
 router.get('/listings/submitted', function(req, res, next) {
@@ -49,16 +47,19 @@ router.get('/sessions/new', function(req, res, next) {
 });
 
 router.post('/sessions', function(req, res) {
-  var body = req.body
+  var body = req.body;
   models.User.findOne({ where: { username: body.username } }).then(user => {
-    var username = user.username
-    if(username) {
+    if(user) {
+      req.session.user = user;
+      console.log(req.session.name);
       res.redirect('/');
     } else {
       res.redirect('/sessions/new');
     }
   });
 });
+
+
 
 
 module.exports = router;
