@@ -16,10 +16,14 @@ describe('User', function() {
   before(function(done) {
     browser
       .fill("name", "Sally")
-      .pressButton('submit', done);
+      .fill("username", "sally123")
+      .fill("email", "sally@gmail.com")
+      .fill("password", "12345")
+      .pressButton('submit');
+      done();
   });
 
   it('can be created', function() {
-    chai.expect(browser.html("body")).to.include("Welcome Sally!")
+    chai.expect(models.User.findOne({name: "Sally"})).to.exist;
   });
 });

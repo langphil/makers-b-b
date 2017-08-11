@@ -4,9 +4,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  models.User.findAll().then(function(user) {
-    name = user[0].name;
-  });
+  var body = req.body;
+  if(req.session && req.session.user){
+  name = req.session.user.username;
+  }
   models.Listing.findAll().then(function(listings) {
     res.render('index', {
       title: 'Makers BnB',
@@ -21,7 +22,6 @@ router.post('/', function(req, res) {
   models.Listing.create({name: name, text: description});
   res.redirect('/listings/submitted');
 });
-
 
 // Listing
 router.get('/listings/submitted', function(req, res, next) {
@@ -38,9 +38,27 @@ router.get('/users', function(req, res) {
 });
 
 router.post('/users', function(req, res) {
-  var name = req.body.name;
-  models.User.create({name: name}).then(function() {
+  var body = req.body;
+  models.User.create({name: body.name, username: body.username, email: body.email, password: body.password}).then(function() {
     res.redirect('/');
+  });
+});
+
+router.get('/sessions/new', function(req, res, next) {
+  res.render('sessions/new');
+});
+
+router.post('/sessions', function(req, res) {
+  var body = req.body;
+  models.User.findOne({ where: { username: body.username } }).then(user => {
+    if(user !== null) {
+      req.session.user = user;
+      console.log(user);
+      res.redirect('/');
+    } else {
+      console.log("here")
+      res.redirect('/sessions/new');
+    }
   });
 });
 
