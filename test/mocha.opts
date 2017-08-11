@@ -1,1 +1,2 @@
 --require=env-test
+-t 100000
