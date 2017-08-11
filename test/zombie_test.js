@@ -1,7 +1,7 @@
 var Browser = require ('zombie');
 var models = require('../models');
 var chai = require('chai');
-var should = chai.should();
+var expect = chai.expect;
 
 Browser.localhost("test", 3000);
 
@@ -16,17 +16,18 @@ describe('User can see home page', function() {
   describe('submitting a form', function() {
     before(function(done) {
       browser
-          .fill("title", "Studio Flat in London")
+          .fill("title", "10 Downing Street")
           .fill("description", "A spacious studio flat with easy access to tube station")
           .pressButton('add', done);
       });
 
       it('should confirm a submission', function() {
-        browser.assert.text('#content', "Your listing has been submitted");
+        browser.assert.url({ pathname: '/listings/submitted' });
+        expect(browser.html('p')).to.include("Your listing has been submitted");
       });
 
       it('should add data to the database', function() {
-        chai.expect(models.Listing.findOne({name: "Studio Flat in London"})).to.exist;
+        expect(models.Listing.findOne({name: "10 Downing Street"})).to.exist;
       });
 
       after(function() {

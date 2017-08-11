@@ -1,17 +1,17 @@
 $(document).ready(function() {
   $('#newproperty').dialog({
-      autoOpen: false,
-      // show: {
-      //   effect: "blind",
-      //   duration: 1000
-      // },
-      // hide: {
-      //   effect: "explode",
-      //   duration: 1000
-      // }
+      autoOpen: false
     });
+
+  $('#reservation').dialog({
+    autoOpen: false
+  });
 
   $('#openlisting').on('click', function() {
     $('#newproperty').dialog('open');
+  });
+
+  $('#listing-reserve').on('click', function() {
+    $('#reservation').dialog('open');
   });
 });
