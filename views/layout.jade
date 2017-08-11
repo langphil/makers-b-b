@@ -9,6 +9,17 @@ html
       a(class="nav-box" href="/") Makers BnB
       img(src="https://us.v-cdn.net/5017598/uploads/editor/gb/n8k1szoz4x20.png")
       section(class="nav-box")
-        a(class="button" href="/") List a property
+        a(class="button" id="openlisting") List a property
         a(class="button" href="/sessions/new") Sign in
     block content
+
+    div(id="newproperty" class="container")
+      h1 List a new property
+      form(name="test-form", action="/" method="post")
+        input(type="text", name="title", placeholder="Property Title...", required='true')
+        textarea(name="description" rows="10" cols="30" placeholder="Description...", required='true')
+        button(type="submit", value="add") Submit
+
+    script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+    script(src='http://code.jquery.com/ui/1.11.1/jquery-ui.min.js')
+    script(src='/jquery_interface.js')

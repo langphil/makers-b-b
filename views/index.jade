@@ -11,10 +11,3 @@ block content
           h1(class='listing-name')= listing.name
           p(class='listing-text')= listing.text
           button(class='listing-reserve') Reserve
-
-  section(class="container")
-    h1 List a new property
-    form(name="test-form", action="/" method="post")
-      input(type="text", name="title", placeholder="Property Title...", required='true')
-      textarea(name="description" rows="10" cols="30" placeholder="Description...", required='true')
-      button(type="submit", value="add") Submit
