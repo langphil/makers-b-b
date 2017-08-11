@@ -6,16 +6,16 @@
     psql
     create database makers_bnb_development
     create database makers_bnb_test
-    \q
-    npm install -g sequelize-cli
-    sequelize db:migrate
-    sequelize db:migrate --env test
 
 ## Updating Database with new models
 This will create both the model and migration folder
     sequelize model:create --name NAME --attributes "name:string, text:text, url:string"
     sequelize db:migrate
     sequelize db:migrate --env test
+
+## Running the app
+    nodemon
+    localhost:3000
 
 ## Running the tests
 In order to make sure the tests only populate the test database, the NODE_ENV must be set before booting the nodemon server for zombie to run on.

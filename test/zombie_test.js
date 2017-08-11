@@ -23,8 +23,7 @@ describe('User can see home page', function() {
 
       it('should confirm a submission', function() {
         browser.assert.url({ pathname: '/listings/submitted' });
-        // expect(browser.html('p')).to.include("Your listing has been submitted");
-        // browser.assert.text('#content', "Your listing has been submitted");
+        expect(browser.html('p')).to.include("Your listing has been submitted");
       });
 
       it('should add data to the database', function() {
