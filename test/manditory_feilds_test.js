@@ -10,6 +10,7 @@ describe('not filling out the form feilds', function(){
   var browser = new Browser();
   beforeEach(function(done) {
     browser.visit('/', done);
+    console.log(browser.html("body"))
     });
 
     it('requires a title to submit', function() {
