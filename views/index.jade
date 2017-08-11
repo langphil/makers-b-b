@@ -1,24 +1,20 @@
 extends layout
 
 block content
-  section(class="container")
+  section(class="hello")
     h1(id="welcome") Welcome #{name}!
-    h1 List a new property
+    p Looking for somewhere to stay?
+  section(class="container")
+    article
+      each listing in listings
+        div
+          h1(class='listing-name')= listing.name
+          p(class='listing-text')= listing.text
+          button(class='listing-reserve') Reserve
 
   section(class="container")
+    h1 List a new property
     form(name="test-form", action="/" method="post")
       input(type="text", name="title", placeholder="Property Title...", required='true')
       textarea(name="description" rows="10" cols="30" placeholder="Description...", required='true')
       button(type="submit", value="add") Submit
-
-  section(class="list")
-      ul
-        each listing in listings
-          li
-            img(src=listing.img)
-            br
-            <strong>
-            = listing.name
-            </strong>
-            br
-            = listing.text
